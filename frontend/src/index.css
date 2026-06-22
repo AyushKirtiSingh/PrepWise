@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Rajdhani', sans-serif;
+  background: #000;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,255,200,0.006) 2px,rgba(0,255,200,0.006) 4px);
+  pointer-events: none;
+  z-index: 9999;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #000; }
+::-webkit-scrollbar-thumb { background: rgba(0,255,200,0.2); border-radius: 2px; }
+
+.mono { font-family: 'Share Tech Mono', monospace; }
+
+.page-enter {
+  animation: pageEnter 0.5s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.neon-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 4px;
+  position: relative;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.neon-card:hover {
+  border-color: rgba(0,255,200,0.2);
+  box-shadow: 0 0 20px rgba(0,255,200,0.04);
+}
+.neon-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent, #00ffc8), transparent);
+  border-radius: 4px 4px 0 0;
+}
+
+.neon-text { text-shadow: 0 0 20px var(--glow, rgba(0,255,200,0.5)); }
+.neon-green { color: #00ffc8; --glow: rgba(0,255,200,0.5); }
+.neon-red { color: #ff6b6b; --glow: rgba(255,107,107,0.5); }
+.neon-purple { color: #a78bfa; --glow: rgba(167,139,250,0.5); }
+.neon-gold { color: #ffd700; --glow: rgba(255,215,0,0.4); }
+.neon-blue { color: #60a5fa; --glow: rgba(96,165,250,0.5); }
+
+.game-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.btn-neon {
+  background: transparent;
+  border: 1px solid rgba(0,255,200,0.4);
+  color: #00ffc8;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.btn-neon:hover {
+  box-shadow: 0 0 20px rgba(0,255,200,0.2), inset 0 0 20px rgba(0,255,200,0.05);
+  border-color: #00ffc8;
+}
+.btn-neon:disabled { opacity: 0.3; cursor: not-allowed; }
+
+.input-neon {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 4px;
+  color: #fff;
+  font-size: 15px;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 500;
+  outline: none;
+  transition: all 0.2s;
+  letter-spacing: 0.5px;
+}
+.input-neon:focus {
+  border-color: rgba(0,255,200,0.4);
+  box-shadow: 0 0 12px rgba(0,255,200,0.08);
+  background: rgba(0,255,200,0.02);
+}
+.input-neon::placeholder {
+  color: rgba(255,255,255,0.15);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 12px;
+}
+
+.select-neon {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 4px;
+  color: #fff;
+  font-size: 15px;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 500;
+  outline: none;
+  transition: border-color 0.2s;
+  appearance: none;
+  cursor: pointer;
+}
+.select-neon:focus { border-color: rgba(0,255,200,0.4); }
+.select-neon option { background: #0a0a0a; }
+
+.neon-bar {
+  height: 3px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 14px;
+}
+.neon-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+
+.tag-neon-green { background: rgba(0,255,200,0.06); color: #00ffc8; border: 1px solid rgba(0,255,200,0.2); font-family: 'Share Tech Mono', monospace; }
+.tag-neon-red { background: rgba(255,107,107,0.06); color: #ff6b6b; border: 1px solid rgba(255,107,107,0.2); font-family: 'Share Tech Mono', monospace; }
+.tag-neon-purple { background: rgba(167,139,250,0.06); color: #a78bfa; border: 1px solid rgba(167,139,250,0.2); font-family: 'Share Tech Mono', monospace; }
+.tag-neon-gold { background: rgba(255,215,0,0.06); color: #ffd700; border: 1px solid rgba(255,215,0,0.2); font-family: 'Share Tech Mono', monospace; }
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(0,255,200,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,200,0.015) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
